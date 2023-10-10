@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    background-color: RGB(33, 33, 33);
+    COLOR: white;
+    font-family: "AR one Sans", sans-serif;
+}
+
+h1, h2 {
+    font-family: Verdana, SansSerif, sans-serif;
+    padding: 5px 5px 5px 0px;
+}
+
+button {
+    margin: 10px 0px 10px 0px;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+button:hover {
+    transition: 0.4s ease;
+    background-color: dodgerblue;
+    cursor: pointer;
+}
+
+.delete {
+    background-color: red;
+}
+
+.section-wrapper {
+    padding: 10px;
+    border: 1px solid dodgerblue;
+    border-radius: 10px;
+    max-width: fit-content;
+    min-width: 500px;
+    margin: 15px;
+}
+
+input {
+    padding: 5px;
+    margin: 10px 0px 10px 0px;
+    margin-left: 0;
+    background-color: white;
+    width: 95%;
+    color: black;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.start-end-date {
+    display: flex;
+
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 0 15px;
+}
+
+input:focus {
+    border: 1px solid dodgerblue;
+}
+
+.cancel-save-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.cancel-save-buttons button {
+    margin: 10px;
+}
+
+.add-section-button {
+    display: flex;
+    align-self: center;
+}
