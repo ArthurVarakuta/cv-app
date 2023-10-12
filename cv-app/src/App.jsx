@@ -1,39 +1,62 @@
 import {useState} from 'react';
 import "./assets/css/clean.css";
 import "./assets/css/index.css";
+import "./assets/css/example.css"
+import {useForm} from "react-hook-form";
+
 
 function App() {
+const {register,watch}=useForm();
+
+    const name =watch("name");
+    const surname =watch("surname");
+    const email =watch("email");
+    const phone =watch("phone");
+    const address =watch("address");
+
+    const educationPlace =watch("educationPlace");
+    const degree =watch("degree");
+    const learning_startData =watch("learning_startData");
+    const learning_endData =watch("learning_endData");
+    const learn_city =watch("learn_city");
+
+    const company =watch("company");
+    const title =watch("title");
+    const work_startDate =watch("work_startDate");
+    const work_endDate =watch("work_endDate");
+    const work_city =watch("work_city");
 
     return (<>
         <div className="app-form">
-            <section className="general-info section-wrapper">
+            <div className="input-wrapper">
+            <form className="general-info section-wrapper">
                 <h1>Personal Details</h1>
                 <h2>Name</h2>
-                <input type="text" placeholder="John"/>
+                <input {...register ("name")} type="text" value="John"/>
                 <h2>Surname</h2>
-                <input type="text" placeholder="Doe"/>
+                <input {...register ("surname")} type="text" value="Doe"/>
                 <h2>E-mail</h2>
-                <input type="email" placeholder="email@gmail.com"/>
+                <input {...register ("email")} type="email" value="email@gmail.com"/>
                 <h2>Phone number</h2>
-                <input type="text" placeholder="+111 11 111 11 11"/>
+                <input {...register ("phone")} type="text" value="+111 11 111 11 11"/>
                 <h2>Address</h2>
-                <input type="text"
-                       placeholder="Street, house number, apartment number"/>
-            </section>
-            <section className="education section-wrapper">
+                <input {...register ("address")} type="text"
+                       value="Street, house number, apartment number"/>
+            </form>
+            <form className="education section-wrapper">
                 <h1>Education</h1>
                 <h2>Place of education</h2>
-                <input type="text" placeholder="University of London"/>
+                <input {...register ("educationPlace")} type="text" value="University of London"/>
                 <h2>Degree*</h2>
-                <input type="text" placeholder="Bachelor"/>
+                <input {...register ("degree")} type="text" value="Bachelor"/>
                 <div className="start-end-date">
                     <h2>Start date</h2>
-                    <input type="date"/>
+                    <input {...register ("learning_startData")} type="date"/>
                     <h2>End date</h2>
-                    <input type="date"/>
+                    <input {...register ("learning_endData")} type="date"/>
                 </div>
                 <h2>Location</h2>
-                <input type="text" placeholder="City, Country"/>
+                <input {...register ("learn_city")} type="text" value="City, Country"/>
                 <div>
                     <button className="delete">Delete</button>
                     <div className="cancel-save-buttons">
@@ -42,26 +65,26 @@ function App() {
                     </div>
                 </div>
                 <button className="add-section-button">+ Education</button>
-            </section>
+            </form>
 
 
-            <section className="practice section-wrapper">
+            <form className="practice section-wrapper">
                 <h1>Practice</h1>
                 <h2>Company</h2>
-                <input type="text" placeholder="Freshcode"/>
+                <input {...register ("company")} type="text" value="Freshcode"/>
                 <h2>Title</h2>
-                <input type="text" placeholder="Front-end developer"/>
+                <input {...register ("title")} type="text" value="Front-end developer"/>
                 <div className="start-end-date">
                     <h2>Start date</h2>
-                    <input type="date"/>
+                    <input {...register ("work_startDate")} type="date"/>
                     <h2>End date</h2>
-                    <input type="date"/>
+                    <input {...register ("work_endDate")} type="date"/>
                 </div>
                 <h2>Location</h2>
-                <input type="text" placeholder="City, Country"/>
+                <input {...register ("work_city")} type="text" value="City, Country"/>
                 <h2>Description</h2>
                 <textarea
-                    placeholder="Decribe anything about your experience..."
+                    value="Decribe anything about your experience..."
                     name="" id="" cols="44" rows="5"></textarea>
                 <div>
                     <button className="delete">Delete</button>
@@ -71,33 +94,36 @@ function App() {
                     </div>
                 </div>
                 <button className="add-section-button">+ Practice</button>
-            </section>
+            </form>
         </div>
-        <div className="example">
-            <header>
-                <h1></h1>
-                <span></span>
-                <span></span>
-                <span></span>
+
+        <form className="example" id="cv">
+            <header className="header">
+                <h1>General info</h1>
+                <h3>{name} {surname}</h3>
+                <div className="horizontal-info-section">
+                    <img src="./assets/images/email.png" alt=""/><span>{email} </span>
+                    <img src="./assets/images/phone-call.png" alt=""/><span> {phone} </span>
+                    <img src="./assets/images/location.png" alt=""/><span> {address} </span>
+                </div>
             </header>
-
-
-            <h1></h1>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-            <h1></h1>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <section className="education-example">
+            <h1>Education</h1>
+            <span>{educationPlace}</span>
+            <span>{degree}</span>
+            <span>{learning_startData}</span>
+            <span>{learning_endData}</span>
+            <span>{learn_city}</span>
+    </section>
+            <section className="work">
+            <h1>Work practice</h1>
+            <span>{company}</span>
+            <span>{title}</span>
+            <span>{work_startDate}</span>
+            <span>{work_endDate}</span>
+            <span>{work_city}</span>
+            </section>
+        </form>
         </div>
     </>)
 }

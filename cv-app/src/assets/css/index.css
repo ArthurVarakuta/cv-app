@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
 
 * {
-    background-color: RGB(33, 33, 33);
-    COLOR: white;
+
     font-family: "AR one Sans", sans-serif;
 }
 
@@ -32,7 +31,6 @@ button:hover {
     padding: 10px;
     border: 1px solid dodgerblue;
     border-radius: 10px;
-    max-width: fit-content;
     min-width: 500px;
     margin: 15px;
 }
@@ -76,4 +74,18 @@ input:focus {
 .add-section-button {
     display: flex;
     align-self: center;
+}
+
+.app-form{
+    display: flex;
+    flex-direction: row;
+    background-color: RGB(33, 33, 33);
+    COLOR: white;
+
+}
+.input-wrapper{
+    max-width: 40%;
+}
+.example {
+
 }

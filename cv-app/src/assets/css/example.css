@@ -1,0 +1,52 @@
+
+.example{
+    border: 1px solid black;
+    background-color: white;
+    min-width: 21.1cm;
+    max-width: 21.1cm;
+    max-height: 29.6cm;
+
+}
+
+.header,
+.education-example,
+.work{
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+.horizontal-info-selection{
+    display: flex;
+    flex-direction: row;
+}
+.header{
+    background-color: darkgreen;
+    color: white;
+    padding: 30px 0 30px 0;
+}
+.header img{
+    height: 25px;
+    width: 25px;
+    z-index: 99;
+}
+.education-example{
+
+}
+.work{
+
+}
+.header span,
+.education-example span,
+.work span{
+    padding: 5px;
+}
+
+.header h3,
+.education-example h3,
+.work h3{
+font-size: 40px;
+    font-weight: 900;
+}
