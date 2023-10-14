@@ -89,3 +89,11 @@ input:focus {
 .example {
 
 }
+.download-button{
+background-color: green;
+    color: white;
+}
+.download-section{
+    display: flex;
+    justify-content: center;
+}

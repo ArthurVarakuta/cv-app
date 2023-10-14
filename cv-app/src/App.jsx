@@ -3,6 +3,7 @@ import "./assets/css/clean.css";
 import "./assets/css/index.css";
 import "./assets/css/example.css"
 import {useForm} from "react-hook-form";
+import DownloadCV from "./Components/DownloadCV.jsx";
 
 
 function App() {
@@ -29,6 +30,9 @@ const {register,watch}=useForm();
     return (<>
         <div className="app-form">
             <div className="input-wrapper">
+                <div className="download-section section-wrapper">
+                    <DownloadCV></DownloadCV>
+                </div>
             <form className="general-info section-wrapper">
                 <h1>Personal Details</h1>
                 <h2>Name</h2>
@@ -102,26 +106,30 @@ const {register,watch}=useForm();
                 <h1>General info</h1>
                 <h3>{name} {surname}</h3>
                 <div className="horizontal-info-section">
-                    <img src="./assets/images/email.png" alt=""/><span>{email} </span>
-                    <img src="./assets/images/phone-call.png" alt=""/><span> {phone} </span>
-                    <img src="./assets/images/location.png" alt=""/><span> {address} </span>
+                    <span className="material-symbols-outlined">mail</span><span>{email}</span>
+                    <span className="material-symbols-outlined">phone_iphone  </span><span>{phone}</span>
+                    <span className="material-symbols-outlined">home</span><span>{address}</span>
                 </div>
             </header>
             <section className="education-example">
-            <h1>Education</h1>
-            <span>{educationPlace}</span>
+            <h1 className="cv-title">Education</h1>
+                <div className="stat-container">
+            <span className="cv-highlight">{educationPlace}</span>
             <span>{degree}</span>
             <span>{learning_startData}</span>
-            <span>{learning_endData}</span>
+            <span>{learning_endData===""&&learning_endData!=="дд:мм:гггг"?"Today":learning_endData}</span>
             <span>{learn_city}</span>
+                </div>
     </section>
             <section className="work">
-            <h1>Work practice</h1>
-            <span>{company}</span>
+            <h1 className="cv-title">Work practice</h1>
+                <div className="stat-container">
+            <span className="cv-highlight">{company}</span>
             <span>{title}</span>
             <span>{work_startDate}</span>
-            <span>{work_endDate}</span>
+            <span>{work_endDate===""&&work_startDate!==""?"Today":work_endDate}</span>
             <span>{work_city}</span>
+                    </div>
             </section>
         </form>
         </div>

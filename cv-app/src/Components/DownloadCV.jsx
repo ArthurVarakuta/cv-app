@@ -1,8 +1,9 @@
 import React from 'react';
+import JsPDF from 'jspdf';
 
 const DownloadCV = () => {
     const generatePDF = () => {
-        const cv = new JsPDF('portrait', 'pt', 'a4');
+        const cv = new JsPDF('portrait',"pt",[841.8898,595.276]);
         cv.html(document.querySelector('#cv')).then(() => {
             cv.save('cv.pdf');
         });

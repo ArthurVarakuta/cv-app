@@ -2,18 +2,17 @@
 .example{
     border: 1px solid black;
     background-color: white;
-    min-width: 21.1cm;
-    max-width: 21.1cm;
-    max-height: 29.6cm;
-
+    max-width: 595.276pt;
+    max-height:841.8898pt;
 }
 
 .header,
 .education-example,
-.work{
+.work,
+.stat-container{
 display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     font-size: 20px;
     font-weight: 500;
     color: black;
@@ -26,6 +25,8 @@ display: flex;
     background-color: darkgreen;
     color: white;
     padding: 30px 0 30px 0;
+    align-items: center;
+
 }
 .header img{
     height: 25px;
@@ -49,4 +50,23 @@ display: flex;
 .work h3{
 font-size: 40px;
     font-weight: 900;
+}
+.material-symbols-outlined{
+
+}
+.cv-title{
+background-color: cadetblue;
+    border-radius:10px ;
+    padding: 15px;
+    margin: 15px;
+    width: 90%;
+}
+.cv-highlight{
+    font-weight: 800;
+}
+.work{}
+.education-example{}
+
+.stat-container{
+    padding-left: 35px;
 }
