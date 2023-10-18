@@ -1,31 +1,104 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import "./assets/css/clean.css";
 import "./assets/css/index.css";
 import "./assets/css/example.css"
-import {useForm} from "react-hook-form";
 import DownloadCV from "./Components/DownloadCV.jsx";
-
+// import GeneralInfo from "./Components/GeneralInfo.jsx";
+// import EducationInfo from "./Components/EducationInfo.jsx";
+// import PracticeInfo from "./Components/PracticeInfo.jsx";
+import "../src/assets/onChangeHandlers.js";
 
 function App() {
-const {register,watch}=useForm();
 
-    const name =watch("name");
-    const surname =watch("surname");
-    const email =watch("email");
-    const phone =watch("phone");
-    const address =watch("address");
+    const [name,setName]=useState("John");
+    const [surname,setSurname]=useState("Doe");
+    const [email,setEmail]=useState("email@gmail.com");
+    const [phonenumber,setPhonenumber]=useState("+111 11 111 11 11");
+    const [address,setAddress]=useState("Street, house number, apartment number");
 
-    const educationPlace =watch("educationPlace");
-    const degree =watch("degree");
-    const learning_startData =watch("learning_startData");
-    const learning_endData =watch("learning_endData");
-    const learn_city =watch("learn_city");
+    const [educationPlace, setEducationPlace]=useState("University of London");
+    const [degree, setDegree]=useState("Bachelor");
+    const [educationStartDate, setEducationStartDate]=useState("12-10-2020");
+    const [educationEndDate, setEducationEndDate]=useState("12-10-2023");
+    const [educationLocation, setEducationLocation]=useState("UK, Whales");
 
-    const company =watch("company");
-    const title =watch("title");
-    const work_startDate =watch("work_startDate");
-    const work_endDate =watch("work_endDate");
-    const work_city =watch("work_city");
+    const [company, setCompany]=useState("Freshcode");
+    const [title, setTitle]=useState("Front-end web developer");
+    const [workStartDate, setWorkStartDate]=useState("12-10-2020");
+    const [workEndDate, setWorkEndDate]=useState("12-10-2023");
+    const [workLocation, setWorkLocation]=useState("UK, London");
+    const [workDescription, setWorkDescription]=useState("Cool!");
+
+
+    let nameChange=(e)=>{
+        const newValue= e.target.value;
+        setName(newValue);
+    }
+    let surnameChange=(e)=>{
+        const newValue= e.target.value;
+        setSurname(newValue);
+    }
+    let emailChange=(e)=>{
+        const newValue= e.target.value;
+        setEmail(newValue);
+    }
+    let phonenumberChange=(e)=>{
+        const newValue= e.target.value;
+        setPhonenumber(newValue);
+    }
+    let addressChange=(e)=>{
+        const newValue= e.target.value;
+        setAddress(newValue);
+    }
+
+
+    let educationPlaceChange=(e)=>{
+        const newValue= e.target.value;
+        setEducationPlace(newValue);
+    }
+    let degreeChange=(e)=>{
+        const newValue= e.target.value;
+        setDegree(newValue);
+    }
+    let educationStartDateChange=(e)=>{
+        const newValue= e.target.value;
+        setEducationStartDate(newValue);
+    }
+    let educationEndDateChange=(e)=>{
+        const newValue= e.target.value;
+        setEducationEndDate(newValue);
+    }
+    let educationLocationChange=(e)=>{
+        const newValue= e.target.value;
+        setEducationLocation(newValue);
+    }
+
+
+    let companChange=(e)=>{
+        const newValue= e.target.value;
+        setCompany(newValue);
+    }
+    let titleChange=(e)=>{
+        const newValue= e.target.value;
+        setTitle(newValue);
+    }
+    let workStartDateChange=(e)=>{
+        const newValue= e.target.value;
+        setWorkStartDate(newValue);
+    }
+    let workEndDateChange=(e)=>{
+        const newValue= e.target.value;
+        setWorkEndDate(newValue);
+    }
+    let workLocationChange=(e)=>{
+        const newValue= e.target.value;
+        setWorkLocation(newValue);
+    }
+    let workDescriptionChange=(e)=>{
+        const newValue= e.target.value;
+        setWorkDescription(newValue);
+    }
+
 
     return (<>
         <div className="app-form">
@@ -33,72 +106,73 @@ const {register,watch}=useForm();
                 <div className="download-section section-wrapper">
                     <DownloadCV></DownloadCV>
                 </div>
-            <form className="general-info section-wrapper">
-                <h1>Personal Details</h1>
-                <h2>Name</h2>
-                <input {...register ("name")} type="text" value="John"/>
-                <h2>Surname</h2>
-                <input {...register ("surname")} type="text" value="Doe"/>
-                <h2>E-mail</h2>
-                <input {...register ("email")} type="email" value="email@gmail.com"/>
-                <h2>Phone number</h2>
-                <input {...register ("phone")} type="text" value="+111 11 111 11 11"/>
-                <h2>Address</h2>
-                <input {...register ("address")} type="text"
-                       value="Street, house number, apartment number"/>
-            </form>
-            <form className="education section-wrapper">
-                <h1>Education</h1>
-                <h2>Place of education</h2>
-                <input {...register ("educationPlace")} type="text" value="University of London"/>
-                <h2>Degree*</h2>
-                <input {...register ("degree")} type="text" value="Bachelor"/>
-                <div className="start-end-date">
-                    <h2>Start date</h2>
-                    <input {...register ("learning_startData")} type="date"/>
-                    <h2>End date</h2>
-                    <input {...register ("learning_endData")} type="date"/>
-                </div>
-                <h2>Location</h2>
-                <input {...register ("learn_city")} type="text" value="City, Country"/>
-                <div>
-                    <button className="delete">Delete</button>
-                    <div className="cancel-save-buttons">
-                        <button>Cancel</button>
-                        <button>Save</button>
+
+                <form className="general-info section-wrapper">
+                    <h1>Personal Details</h1>
+                    <h2>Name</h2>
+                    <input onChange={nameChange} type="text" placeholder="John"/>
+                    <h2>Surname</h2>
+                    <input onChange={surnameChange}  type="text" placeholder="Doe"/>
+                    <h2>E-mail</h2>
+                    <input onChange={emailChange}  type="email" placeholder="email@gmail.com"/>
+                    <h2>Phone number</h2>
+                    <input onChange={phonenumberChange}  type="text" placeholder="+111 11 111 11 11"/>
+                    <h2>Address</h2>
+                    <input onChange={addressChange} type="text"
+                           placeholder="Street, house number, apartment number"/>
+                </form>
+                <form className="education section-wrapper">
+                    <h1>Education</h1>
+                    <h2>Place of education</h2>
+                    <input onChange={educationPlaceChange}  type="text" placeholder="University of London"/>
+                    <h2>Degree*</h2>
+                    <input onChange={degreeChange} type="text" placeholder="Bachelor"/>
+                    <div className="start-end-date">
+                        <h2>Start date</h2>
+                        <input onChange={educationStartDateChange}  type="date"/>
+                        <h2>End date</h2>
+                        <input  onChange={educationEndDateChange} type="date"/>
                     </div>
-                </div>
-                <button className="add-section-button">+ Education</button>
-            </form>
+                    <h2>Location</h2>
+                    <input onChange={educationLocationChange}  type="text" placeholder="City, Country"/>
+                    <div>
+                        <button className="delete">Delete</button>
+                        <div className="cancel-save-buttons">
+                            <button>Cancel</button>
+                            <button>Save</button>
+                        </div>
+                    </div>
+                    <button className="add-section-button">+ Education</button>
+                </form>
+                <form className="practice section-wrapper">
+                    <h1>Practice</h1>
+                    <h2>Company</h2>
+                    <input onChange={companChange} type="text" placeholder="Freshcode"/>
+                    <h2>Title</h2>
+                    <input onChange={titleChange} type="text" placeholder="Front-end developer"/>
+                    <div className="start-end-date">
+                        <h2>Start date</h2>
+                        <input onChange={workStartDateChange}  type="date"/>
+                        <h2>End date</h2>
+                        <input onChange={workEndDateChange} type="date"/>
+                    </div>
+                    <h2>Location</h2>
+                    <input onChange={workLocationChange} type="text" placeholder="City, Country"/>
+                    <h2>Description</h2>
+                    <textarea onChange={workDescriptionChange}
+                        placeholder="Decribe anything about your experience..."
+                        name="" id="" cols="44" rows="5"></textarea>
+                    <div>
+                        <button className="delete">Delete</button>
+                        <div className="cancel-save-buttons">
+                            <button>Cancel</button>
+                            <button>Save</button>
+                        </div>
+                    </div>
+                    <button className="add-section-button">+ Practice</button>
+                </form>
 
 
-            <form className="practice section-wrapper">
-                <h1>Practice</h1>
-                <h2>Company</h2>
-                <input {...register ("company")} type="text" value="Freshcode"/>
-                <h2>Title</h2>
-                <input {...register ("title")} type="text" value="Front-end developer"/>
-                <div className="start-end-date">
-                    <h2>Start date</h2>
-                    <input {...register ("work_startDate")} type="date"/>
-                    <h2>End date</h2>
-                    <input {...register ("work_endDate")} type="date"/>
-                </div>
-                <h2>Location</h2>
-                <input {...register ("work_city")} type="text" value="City, Country"/>
-                <h2>Description</h2>
-                <textarea
-                    value="Decribe anything about your experience..."
-                    name="" id="" cols="44" rows="5"></textarea>
-                <div>
-                    <button className="delete">Delete</button>
-                    <div className="cancel-save-buttons">
-                        <button>Cancel</button>
-                        <button>Save</button>
-                    </div>
-                </div>
-                <button className="add-section-button">+ Practice</button>
-            </form>
         </div>
 
         <form className="example" id="cv">
@@ -107,7 +181,7 @@ const {register,watch}=useForm();
                 <h3>{name} {surname}</h3>
                 <div className="horizontal-info-section">
                     <span className="material-symbols-outlined">mail</span><span>{email}</span>
-                    <span className="material-symbols-outlined">phone_iphone  </span><span>{phone}</span>
+                    <span className="material-symbols-outlined">phone_iphone  </span><span>{phonenumber}</span>
                     <span className="material-symbols-outlined">home</span><span>{address}</span>
                 </div>
             </header>
@@ -116,20 +190,21 @@ const {register,watch}=useForm();
                 <div className="stat-container">
             <span className="cv-highlight">{educationPlace}</span>
             <span>{degree}</span>
-            <span>{learning_startData}</span>
-            <span>{learning_endData===""&&learning_endData!=="дд:мм:гггг"?"Today":learning_endData}</span>
-            <span>{learn_city}</span>
+            <span>{educationStartDate}</span>
+            <span>{educationEndDate}</span>
+            <span>{educationLocation}</span>
                 </div>
     </section>
             <section className="work">
             <h1 className="cv-title">Work practice</h1>
-                <div className="stat-container">
+            <div className="stat-container">
             <span className="cv-highlight">{company}</span>
             <span>{title}</span>
-            <span>{work_startDate}</span>
-            <span>{work_endDate===""&&work_startDate!==""?"Today":work_endDate}</span>
-            <span>{work_city}</span>
-                    </div>
+            <span>{workStartDate}</span>
+            <span>{workEndDate}</span>
+            <span>{workLocation}</span>
+            <span>{workDescription}</span>
+            </div>
             </section>
         </form>
         </div>
