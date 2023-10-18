@@ -2,7 +2,9 @@
 .example{
     border: 1px solid black;
     background-color: white;
+    min-width: 595.276pt;
     max-width: 595.276pt;
+    min-height:841.8898pt;
     max-height:841.8898pt;
 }
 
@@ -20,6 +22,7 @@ display: flex;
 .horizontal-info-selection{
     display: flex;
     flex-direction: row;
+margin: 10px;
 }
 .header{
     background-color: darkgreen;
@@ -69,4 +72,10 @@ background-color: cadetblue;
 
 .stat-container{
     padding-left: 35px;
+}
+.arrow-container{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

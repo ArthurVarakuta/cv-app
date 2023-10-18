@@ -7,6 +7,7 @@ import DownloadCV from "./Components/DownloadCV.jsx";
 // import EducationInfo from "./Components/EducationInfo.jsx";
 // import PracticeInfo from "./Components/PracticeInfo.jsx";
 import "../src/assets/onChangeHandlers.js";
+import Collapsible from "react-collapsible";
 
 function App() {
 
@@ -74,7 +75,7 @@ function App() {
     }
 
 
-    let companChange=(e)=>{
+    let companyChange=(e)=>{
         const newValue= e.target.value;
         setCompany(newValue);
     }
@@ -100,6 +101,9 @@ function App() {
     }
 
 
+
+
+
     return (<>
         <div className="app-form">
             <div className="input-wrapper">
@@ -121,55 +125,64 @@ function App() {
                     <input onChange={addressChange} type="text"
                            placeholder="Street, house number, apartment number"/>
                 </form>
+
                 <form className="education section-wrapper">
                     <h1>Education</h1>
-                    <h2>Place of education</h2>
-                    <input onChange={educationPlaceChange}  type="text" placeholder="University of London"/>
-                    <h2>Degree*</h2>
-                    <input onChange={degreeChange} type="text" placeholder="Bachelor"/>
-                    <div className="start-end-date">
-                        <h2>Start date</h2>
-                        <input onChange={educationStartDateChange}  type="date"/>
-                        <h2>End date</h2>
-                        <input  onChange={educationEndDateChange} type="date"/>
-                    </div>
-                    <h2>Location</h2>
-                    <input onChange={educationLocationChange}  type="text" placeholder="City, Country"/>
-                    <div>
-                        <button className="delete">Delete</button>
-                        <div className="cancel-save-buttons">
-                            <button>Cancel</button>
-                            <button>Save</button>
+                    <Collapsible triggerClassName="trigger-closed-style" triggerOpenedClassName="trigger-style" transitionTime={100} openedClassName='collapsible-wrapper-opened' className="collapsible-wrapper-closed" trigger={educationPlace}>
+                        <h2>Place of education</h2>
+                        <input onChange={educationPlaceChange}  type="text" placeholder="University of London"/>
+                        <h2>Degree*</h2>
+                        <input onChange={degreeChange} type="text" placeholder="Bachelor"/>
+                        <div className="start-end-date">
+                            <h2>Start date</h2>
+                            <input onChange={educationStartDateChange}  type="date"/>
+                            <h2>End date</h2>
+                            <input  onChange={educationEndDateChange} type="date"/>
                         </div>
-                    </div>
-                    <button className="add-section-button">+ Education</button>
-                </form>
+                        <h2>Location</h2>
+                        <input onChange={educationLocationChange}  type="text" placeholder="City, Country"/>
+                        <div>
+                            <button className="delete">Delete</button>
+                            <div className="cancel-save-buttons">
+                                <button>Cancel</button>
+                                <button>Save</button>
+                            </div>
+                        </div>
+                        <button className="add-section-button">+ Education</button>
+                    </Collapsible>
+
+
+            </form>
+
                 <form className="practice section-wrapper">
                     <h1>Practice</h1>
-                    <h2>Company</h2>
-                    <input onChange={companChange} type="text" placeholder="Freshcode"/>
-                    <h2>Title</h2>
-                    <input onChange={titleChange} type="text" placeholder="Front-end developer"/>
-                    <div className="start-end-date">
-                        <h2>Start date</h2>
-                        <input onChange={workStartDateChange}  type="date"/>
-                        <h2>End date</h2>
-                        <input onChange={workEndDateChange} type="date"/>
-                    </div>
-                    <h2>Location</h2>
-                    <input onChange={workLocationChange} type="text" placeholder="City, Country"/>
-                    <h2>Description</h2>
-                    <textarea onChange={workDescriptionChange}
-                        placeholder="Decribe anything about your experience..."
-                        name="" id="" cols="44" rows="5"></textarea>
-                    <div>
-                        <button className="delete">Delete</button>
-                        <div className="cancel-save-buttons">
-                            <button>Cancel</button>
-                            <button>Save</button>
+                    <Collapsible triggerClassName="trigger-closed-style" triggerOpenedClassName="trigger-style" transitionTime={100} openedClassName='collapsible-wrapper-opened' className="collapsible-wrapper-closed"  trigger={company}>
+                        <h2>Company</h2>
+                        <input onChange={companyChange} type="text" placeholder="Freshcode"/>
+                        <h2>Title</h2>
+                        <input onChange={titleChange} type="text" placeholder="Front-end developer"/>
+                        <div className="start-end-date">
+                            <h2>Start date</h2>
+                            <input onChange={workStartDateChange}  type="date"/>
+                            <h2>End date</h2>
+                            <input onChange={workEndDateChange} type="date"/>
                         </div>
-                    </div>
-                    <button className="add-section-button">+ Practice</button>
+                        <h2>Location</h2>
+                        <input onChange={workLocationChange} type="text" placeholder="City, Country"/>
+                        <h2>Description</h2>
+                        <textarea onChange={workDescriptionChange}
+                                  placeholder="Decribe anything about your experience..."
+                                  name="" id="" cols="44" rows="5"></textarea>
+                        <div>
+                            <button className="delete">Delete</button>
+                            <div className="cancel-save-buttons">
+                                <button>Cancel</button>
+                                <button>Save</button>
+                            </div>
+                        </div>
+                        <button className="add-section-button">+ Practice</button>
+                    </Collapsible>
+
                 </form>
 
 

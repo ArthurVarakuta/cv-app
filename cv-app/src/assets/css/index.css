@@ -97,3 +97,23 @@ background-color: green;
     display: flex;
     justify-content: center;
 }
+.collapsible-wrapper-closed{
+    background-color: green ;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.collapsible-wrapper-opened{
+    background-color: cadetblue;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+.trigger-closed-style{
+    cursor: pointer;
+    padding: 15px 200px 15px 15px;
+}
+.trigger-style{
+    cursor: pointer;
+    padding: 15px 200px 15px 15px;
+}
