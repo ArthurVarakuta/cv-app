@@ -3,9 +3,6 @@ import "./assets/css/clean.css";
 import "./assets/css/index.css";
 import "./assets/css/example.css"
 import DownloadCV from "./Components/DownloadCV.jsx";
-// import GeneralInfo from "./Components/GeneralInfo.jsx";
-// import EducationInfo from "./Components/EducationInfo.jsx";
-// import PracticeInfo from "./Components/PracticeInfo.jsx";
 import "../src/assets/onChangeHandlers.js";
 import Collapsible from "react-collapsible";
 
@@ -103,6 +100,30 @@ function App() {
 
 
 
+function sendEducationForm() {
+    let educationInfo = {
+        educationPlace: {educationPlace},
+        degree: {degree},
+        educationStartDate: {educationStartDate},
+        educationEndDate: {educationEndDate},
+        educationLocation: {educationLocation}
+    }
+    console.log(educationInfo)
+
+}
+function sendWorkInfo() {
+    let workInfo = {
+        company: {company},
+        title: {title},
+        workStartDate: {workStartDate},
+        workEndDate: {workEndDate},
+        workLocation: {workLocation},
+        workDescription: {workDescription}
+    }
+    console.log(workInfo)
+}
+
+
 
     return (<>
         <div className="app-form">
@@ -110,8 +131,7 @@ function App() {
                 <div className="download-section section-wrapper">
                     <DownloadCV></DownloadCV>
                 </div>
-
-                <form className="general-info section-wrapper">
+                <div className="general-info section-wrapper">
                     <h1>Personal Details</h1>
                     <h2>Name</h2>
                     <input onChange={nameChange} type="text" placeholder="John"/>
@@ -124,9 +144,8 @@ function App() {
                     <h2>Address</h2>
                     <input onChange={addressChange} type="text"
                            placeholder="Street, house number, apartment number"/>
-                </form>
-
-                <form className="education section-wrapper">
+                </div>
+                <div className="education section-wrapper">
                     <h1>Education</h1>
                     <Collapsible triggerClassName="trigger-closed-style" triggerOpenedClassName="trigger-style" transitionTime={100} openedClassName='collapsible-wrapper-opened' className="collapsible-wrapper-closed" trigger={educationPlace}>
                         <h2>Place of education</h2>
@@ -145,16 +164,13 @@ function App() {
                             <button className="delete">Delete</button>
                             <div className="cancel-save-buttons">
                                 <button>Cancel</button>
-                                <button>Save</button>
+                                <button onClick={()=>sendEducationForm()}>Save</button>
                             </div>
                         </div>
-                        <button className="add-section-button">+ Education</button>
                     </Collapsible>
-
-
-            </form>
-
-                <form className="practice section-wrapper">
+                    <button  className="add-section-button">+ Education</button>
+            </div>
+                <div className="practice section-wrapper">
                     <h1>Practice</h1>
                     <Collapsible triggerClassName="trigger-closed-style" triggerOpenedClassName="trigger-style" transitionTime={100} openedClassName='collapsible-wrapper-opened' className="collapsible-wrapper-closed"  trigger={company}>
                         <h2>Company</h2>
@@ -177,18 +193,14 @@ function App() {
                             <button className="delete">Delete</button>
                             <div className="cancel-save-buttons">
                                 <button>Cancel</button>
-                                <button>Save</button>
+                                <button onClick={()=>sendWorkInfo()}>Save</button>
                             </div>
                         </div>
-                        <button className="add-section-button">+ Practice</button>
                     </Collapsible>
-
-                </form>
-
-
+                    <button className="add-section-button">+ Practice</button>
+                </div>
         </div>
-
-        <form className="example" id="cv">
+        <div className="example" id="cv">
             <header className="header">
                 <h1>General info</h1>
                 <h3>{name} {surname}</h3>
@@ -207,7 +219,7 @@ function App() {
             <span>{educationEndDate}</span>
             <span>{educationLocation}</span>
                 </div>
-    </section>
+        </section>
             <section className="work">
             <h1 className="cv-title">Work practice</h1>
             <div className="stat-container">
@@ -219,9 +231,8 @@ function App() {
             <span>{workDescription}</span>
             </div>
             </section>
-        </form>
+        </div>
         </div>
     </>)
 }
-
 export default App

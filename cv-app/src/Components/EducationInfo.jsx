@@ -1,35 +1,32 @@
-import React from 'react';
-
-
-const EducationInfo = () => {
-
-    return (
-        <>
-            <form className="education section-wrapper">
-                <h1>Education</h1>
-                <h2>Place of education</h2>
-                <input  type="text" value="University of London"/>
-                <h2>Degree*</h2>
-                <input type="text" value="Bachelor"/>
-                <div className="start-end-date">
-                    <h2>Start date</h2>
-                    <input  type="date"/>
-                    <h2>End date</h2>
-                    <input  type="date"/>
-                </div>
-                <h2>Location</h2>
-                <input  type="text" value="City, Country"/>
-                <div>
-                    <button className="delete">Delete</button>
-                    <div className="cancel-save-buttons">
-                        <button>Cancel</button>
-                        <button>Save</button>
-                    </div>
-                </div>
-                <button className="add-section-button">+ Education</button>
-            </form>
-        </>
-    );
-};
-
-export default EducationInfo;
+// import React from 'react';
+// import Collapsible from "react-collapsible";
+//
+// const EducationalInfo = () => {
+//     return (
+//         <>
+//             <Collapsible triggerClassName="trigger-closed-style" triggerOpenedClassName="trigger-style" transitionTime={100} openedClassName='collapsible-wrapper-opened' className="collapsible-wrapper-closed" trigger={educationPlace}>
+//                 <h2>Place of education</h2>
+//                 <input onChange={educationPlaceChange}  type="text" placeholder="University of London"/>
+//                 <h2>Degree*</h2>
+//                 <input onChange={degreeChange} type="text" placeholder="Bachelor"/>
+//                 <div className="start-end-date">
+//                     <h2>Start date</h2>
+//                     <input onChange={educationStartDateChange}  type="date"/>
+//                     <h2>End date</h2>
+//                     <input  onChange={educationEndDateChange} type="date"/>
+//                 </div>
+//                 <h2>Location</h2>
+//                 <input onChange={educationLocationChange}  type="text" placeholder="City, Country"/>
+//                 <div>
+//                     <button className="delete">Delete</button>
+//                     <div className="cancel-save-buttons">
+//                         <button>Cancel</button>
+//                         <button onClick={()=>sendEducationForm()}>Save</button>
+//                     </div>
+//                 </div>
+//             </Collapsible>
+//         </>
+//     );
+// };
+//
+// export default EducationalInfo;
