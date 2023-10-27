@@ -8,7 +8,8 @@ import downloadCVHandler from "./assets/utiljs/downloadCVHandler.js";
 import EducationForm from "./Components/EducationInfo.jsx";
 import {sendEducationForm, sendWorkInfo} from "./assets/utiljs/sendEducationWorkInfo.js";
 import PracticeInfo from "./Components/PracticeInfo.jsx";
-import handleCreatePractice from "./assets/utiljs/handleCreatePractice.jsx";
+import handleCreatePractice from "./Components/Practicelist.jsx";
+import Practicelist from "./Components/Practicelist.jsx";
 
 
 function App() {
@@ -131,7 +132,10 @@ function App() {
                 <div className="practice section-wrapper">
                     <h1>Practice</h1>
                     <PracticeInfo company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}></PracticeInfo>
-                    <button onClick={handleCreatePractice} className="add-section-button">+ Practice</button>
+                    <Practicelist company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}>
+
+                    </Practicelist>
+
                 </div>
         </div>
         <div className="example" id="cv">
