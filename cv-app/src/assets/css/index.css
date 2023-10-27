@@ -19,8 +19,9 @@ button {
 
 button:hover {
     transition: 0.4s ease;
-    background-color: dodgerblue;
+    background-color: cadetblue;
     cursor: pointer;
+    color: white;
 }
 
 .delete {
@@ -116,4 +117,10 @@ background-color: green;
 .trigger-style{
     cursor: pointer;
     padding: 15px 200px 15px 15px;
+}
+.hidden{
+    display: none;
+}
+.start-end-date h2{
+    padding: 0 10px 0 10px;
 }

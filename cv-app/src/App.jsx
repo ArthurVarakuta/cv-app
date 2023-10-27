@@ -2,9 +2,14 @@ import React, {useState} from 'react';
 import "./assets/css/clean.css";
 import "./assets/css/index.css";
 import "./assets/css/example.css"
-import DownloadCV from "./Components/DownloadCV.jsx";
-import "../src/assets/onChangeHandlers.js";
+import "./assets/utiljs/onChangeHandlers.js";
 import Collapsible from "react-collapsible";
+import downloadCVHandler from "./assets/utiljs/downloadCVHandler.js";
+import EducationForm from "./Components/EducationInfo.jsx";
+import {sendEducationForm, sendWorkInfo} from "./assets/utiljs/sendEducationWorkInfo.js";
+import PracticeInfo from "./Components/PracticeInfo.jsx";
+import handleCreatePractice from "./assets/utiljs/handleCreatePractice.jsx";
+
 
 function App() {
 
@@ -70,8 +75,6 @@ function App() {
         const newValue= e.target.value;
         setEducationLocation(newValue);
     }
-
-
     let companyChange=(e)=>{
         const newValue= e.target.value;
         setCompany(newValue);
@@ -97,39 +100,13 @@ function App() {
         setWorkDescription(newValue);
     }
 
-
-
-
-function sendEducationForm() {
-    let educationInfo = {
-        educationPlace: {educationPlace},
-        degree: {degree},
-        educationStartDate: {educationStartDate},
-        educationEndDate: {educationEndDate},
-        educationLocation: {educationLocation}
-    }
-    console.log(educationInfo)
-
-}
-function sendWorkInfo() {
-    let workInfo = {
-        company: {company},
-        title: {title},
-        workStartDate: {workStartDate},
-        workEndDate: {workEndDate},
-        workLocation: {workLocation},
-        workDescription: {workDescription}
-    }
-    console.log(workInfo)
-}
-
-
-
     return (<>
         <div className="app-form">
             <div className="input-wrapper">
                 <div className="download-section section-wrapper">
-                    <DownloadCV></DownloadCV>
+                    <button onClick={()=>{
+                        downloadCVHandler();
+                    }}>Print my CV</button>
                 </div>
                 <div className="general-info section-wrapper">
                     <h1>Personal Details</h1>
@@ -147,57 +124,14 @@ function sendWorkInfo() {
                 </div>
                 <div className="education section-wrapper">
                     <h1>Education</h1>
-                    <Collapsible triggerClassName="trigger-closed-style" triggerOpenedClassName="trigger-style" transitionTime={100} openedClassName='collapsible-wrapper-opened' className="collapsible-wrapper-closed" trigger={educationPlace}>
-                        <h2>Place of education</h2>
-                        <input onChange={educationPlaceChange}  type="text" placeholder="University of London"/>
-                        <h2>Degree*</h2>
-                        <input onChange={degreeChange} type="text" placeholder="Bachelor"/>
-                        <div className="start-end-date">
-                            <h2>Start date</h2>
-                            <input onChange={educationStartDateChange}  type="date"/>
-                            <h2>End date</h2>
-                            <input  onChange={educationEndDateChange} type="date"/>
-                        </div>
-                        <h2>Location</h2>
-                        <input onChange={educationLocationChange}  type="text" placeholder="City, Country"/>
-                        <div>
-                            <button className="delete">Delete</button>
-                            <div className="cancel-save-buttons">
-                                <button>Cancel</button>
-                                <button onClick={()=>sendEducationForm()}>Save</button>
-                            </div>
-                        </div>
-                    </Collapsible>
+                    <EducationForm educationPlace={educationPlace} educationPlaceChange={educationLocationChange} degree={degree} educationStartDateChange={educationStartDateChange} educationEndDateChange={educationEndDateChange} educationLocationChange={educationLocationChange}></EducationForm>
+
                     <button  className="add-section-button">+ Education</button>
             </div>
                 <div className="practice section-wrapper">
                     <h1>Practice</h1>
-                    <Collapsible triggerClassName="trigger-closed-style" triggerOpenedClassName="trigger-style" transitionTime={100} openedClassName='collapsible-wrapper-opened' className="collapsible-wrapper-closed"  trigger={company}>
-                        <h2>Company</h2>
-                        <input onChange={companyChange} type="text" placeholder="Freshcode"/>
-                        <h2>Title</h2>
-                        <input onChange={titleChange} type="text" placeholder="Front-end developer"/>
-                        <div className="start-end-date">
-                            <h2>Start date</h2>
-                            <input onChange={workStartDateChange}  type="date"/>
-                            <h2>End date</h2>
-                            <input onChange={workEndDateChange} type="date"/>
-                        </div>
-                        <h2>Location</h2>
-                        <input onChange={workLocationChange} type="text" placeholder="City, Country"/>
-                        <h2>Description</h2>
-                        <textarea onChange={workDescriptionChange}
-                                  placeholder="Decribe anything about your experience..."
-                                  name="" id="" cols="44" rows="5"></textarea>
-                        <div>
-                            <button className="delete">Delete</button>
-                            <div className="cancel-save-buttons">
-                                <button>Cancel</button>
-                                <button onClick={()=>sendWorkInfo()}>Save</button>
-                            </div>
-                        </div>
-                    </Collapsible>
-                    <button className="add-section-button">+ Practice</button>
+                    <PracticeInfo company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}></PracticeInfo>
+                    <button onClick={handleCreatePractice} className="add-section-button">+ Practice</button>
                 </div>
         </div>
         <div className="example" id="cv">
