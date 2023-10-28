@@ -125,14 +125,15 @@ function App() {
                 </div>
                 <div className="education section-wrapper">
                     <h1>Education</h1>
-                    <EducationForm educationPlace={educationPlace} educationPlaceChange={educationLocationChange} degree={degree} educationStartDateChange={educationStartDateChange} educationEndDateChange={educationEndDateChange} educationLocationChange={educationLocationChange}></EducationForm>
+                    <EducationForm educationPlace={educationPlace} educationPlaceChange={educationPlaceChange} degree={degree} educationStartDateChange={educationStartDateChange} educationEndDateChange={educationEndDateChange} educationLocationChange={educationLocationChange}></EducationForm>
 
                     <button  className="add-section-button">+ Education</button>
             </div>
                 <div className="practice section-wrapper">
                     <h1>Practice</h1>
                     <PracticeInfo company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}></PracticeInfo>
-                    <Practicelist company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}>
+                    <Practicelist PracticeInfo={PracticeInfo} >
+                        <PracticeInfo company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}></PracticeInfo>
 
                     </Practicelist>
 
