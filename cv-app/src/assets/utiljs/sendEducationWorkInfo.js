@@ -1,3 +1,4 @@
+// legacy!!!
 function sendEducationForm() {
     let educationInfo = {
         educationPlace: {educationPlace},

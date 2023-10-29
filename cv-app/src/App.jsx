@@ -2,14 +2,11 @@ import React, {useState} from 'react';
 import "./assets/css/clean.css";
 import "./assets/css/index.css";
 import "./assets/css/example.css"
-import "./assets/utiljs/onChangeHandlers.js";
-import Collapsible from "react-collapsible";
 import downloadCVHandler from "./assets/utiljs/downloadCVHandler.js";
 import EducationForm from "./Components/EducationInfo.jsx";
 import {sendEducationForm, sendWorkInfo} from "./assets/utiljs/sendEducationWorkInfo.js";
 import PracticeInfo from "./Components/PracticeInfo.jsx";
-import handleCreatePractice from "./Components/Practicelist.jsx";
-import Practicelist from "./Components/Practicelist.jsx";
+import GeneralInfo from "./Components/GeneralInfo.jsx";
 
 
 function App() {
@@ -111,31 +108,19 @@ function App() {
                 </div>
                 <div className="general-info section-wrapper">
                     <h1>Personal Details</h1>
-                    <h2>Name</h2>
-                    <input onChange={nameChange} type="text" placeholder="John"/>
-                    <h2>Surname</h2>
-                    <input onChange={surnameChange}  type="text" placeholder="Doe"/>
-                    <h2>E-mail</h2>
-                    <input onChange={emailChange}  type="email" placeholder="email@gmail.com"/>
-                    <h2>Phone number</h2>
-                    <input onChange={phonenumberChange}  type="text" placeholder="+111 11 111 11 11"/>
-                    <h2>Address</h2>
-                    <input onChange={addressChange} type="text"
-                           placeholder="Street, house number, apartment number"/>
+                    <GeneralInfo nameChange={nameChange} surnameChange={surnameChange} emailChange={emailChange} phonenumberChange={phonenumberChange} addressChange={addressChange}></GeneralInfo>
                 </div>
                 <div className="education section-wrapper">
                     <h1>Education</h1>
                     <EducationForm educationPlace={educationPlace} educationPlaceChange={educationPlaceChange} degree={degree} educationStartDateChange={educationStartDateChange} educationEndDateChange={educationEndDateChange} educationLocationChange={educationLocationChange}></EducationForm>
-
-                    <button  className="add-section-button">+ Education</button>
+                    {/*needs to be added*/}
+                    {/*<button  className="add-section-button">+ Education</button>*/}
             </div>
                 <div className="practice section-wrapper">
                     <h1>Practice</h1>
                     <PracticeInfo company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}></PracticeInfo>
-                    <Practicelist PracticeInfo={PracticeInfo} >
-                        <PracticeInfo company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}></PracticeInfo>
-
-                    </Practicelist>
+                  {/*doesnt work*/}
+                    {/*<Practicelist company={company} companyChange={companyChange} titleChange={titleChange} workStartDateChange={workStartDateChange} workEndDateChange={workEndDateChange} workLocationChange={workLocationChange} workDescriptionChange={workDescriptionChange} sendWorkInfo={sendWorkInfo}></Practicelist>*/}
 
                 </div>
         </div>
